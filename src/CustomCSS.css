@@ -1,0 +1,193 @@
+.Empty-Circle {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 45px solid #02165f;
+  background-color: white;
+  margin-left: 18%;
+  margin-top: 10%;
+}
+
+@media only screen and (max-width: 768px) {
+  .Empty-Circle {
+    display: none;
+  }
+}
+
+/* For the VerticalAvatars.js */
+.dotted-line {
+  position: absolute;
+  border-left: 1px dotted #000;
+  transform: translateX(-50%);
+}
+
+/* Mobile screen */
+@media (max-width: 767px) {
+  .dotted-line {
+    display: hidden;
+  }
+}
+
+/* Large screen */
+@media (min-width: 768px) {
+  .dotted-line {
+    top: 30%;
+    left: 54.5%;
+    height: 50%;
+  }
+}
+
+/* For RemittanceTransfer.js */
+
+/* Common styles for horizontal lines */
+.horizontal-line {
+  position: absolute;
+  height: 2px;
+  background-color: #76329c;
+  z-index: 1;
+}
+
+/* Common styles for arrows */
+.arrow {
+  position: absolute;
+  border: solid #76329c;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  z-index: 1;
+}
+
+/* Styles for horizontal line 1 */
+.horizontal-line-1 {
+  top: 41.8%;
+  left: 33.9%;
+  width: 25%;
+  transform: translateX(-50%);
+}
+
+/* Styles for arrow 1 */
+.arrow-1 {
+  top: 42%;
+  left: 34%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Styles for horizontal line 2 */
+.horizontal-line-2 {
+  top: 41.8%;
+  left: 66.2%;
+  width: 25%;
+  transform: translateX(-50%);
+}
+
+/* Styles for arrow 2 */
+.arrow-2 {
+  top: 42%;
+  left: 66.4%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Media query for large screens */
+@media (min-width: 1024px) {
+  .horizontal-line,
+  .arrow {
+    display: visible; /* Hide the elements on small screens */
+  }
+}
+@media (max-width: 1024px) {
+  .horizontal-line,
+  .arrow {
+    display: none; /* Hide the elements on small screens */
+  }
+}
+
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+/* Slick Slider CSS */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+/* Custom CSS */
+.section--sm {
+  padding-top: clamp(30px, 4vw, 50px);
+  padding-bottom: clamp(30px, 4vw, 50px);
+}
+
+.section--bottom {
+  padding-bottom: clamp(50px, 5vw, 80px);
+}
+
+.client-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: rgba(var(--light-r), var(--light-g), var(--light-b), 1);
+  box-shadow: 0 0 10px 0 rgb(var(--dark) / 0.02);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.client-card__img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.client-slider__item {
+  padding-left: 15px;
+  padding-right: 15px;
+}

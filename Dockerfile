@@ -1,34 +1,23 @@
-# Step 1: Build the React application
-# Use an official Node.js image as the build stage
-FROM node:18 as build
+# Use Node 16.20.2 as the base image
+FROM node:16.20.2
 
-# Create app directory
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json ./
+# Copy the package.json and package-lock.json to the container
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copy the entire project to the container
 COPY . .
 
-# Build the app for production
+# Build the React app
 RUN npm run build
 
-# Step 2: Serve the static files
-# Use a lightweight server to serve the built files
-FROM node:18-alpine as production
-
-# Install serve to serve static files
-RUN npm install -g serve
-
-# Copy build files from the previous stage
-COPY --from=build /app/build /app/build
-
-# Expose the port Railway will use
+# Expose port 3000 (or the port your app uses)
 EXPOSE 3000
 
-# Command to serve the build directory
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Start the React app
+CMD ["npx", "serve", "-s", "build", "-l", "3000"]

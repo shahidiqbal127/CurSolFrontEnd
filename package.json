@@ -77,5 +77,5 @@
     "prettier": "2.8.7",
     "tailwindcss": "^3.4.1"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "https://cursolsystem-production.up.railway.app"
 }

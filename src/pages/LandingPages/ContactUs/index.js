@@ -63,7 +63,8 @@ function ContactUs() {
     }
     try {
       setLoading(true);
-      const response = await axios.post(`${Global_Ip}/api/ContactUs`, formData);
+      const API_URL = process.env.REACT_APP_API_URL;
+      const response = await axios.post(`${API_URL}/api/ContactUs`, formData);
       setLoading(false);
       setSuccessMessage("Thanks for Contacting. We will get back to you soon");
       setSnackbarOpen(true);

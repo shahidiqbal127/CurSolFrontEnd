@@ -31,7 +31,9 @@ const CurrencyConversion = () => {
       setLoading(true); // Start loading
       setUserError(null); // Reset user error
       try {
-        const response = await get("api/CurrencyCodeAndFlags"); // Replace with your endpoint
+        const API_URL = process.env.REACT_APP_API_URL;
+        const response = await get(`${API_URL}/api/CurrencyCodeAndFlags`);
+        // const response = await get("api/CurrencyCodeAndFlags"); // Replace with your endpoint
         setFlagsAndCodes(response); // Handle success
 
         // Filter to only include EUR and GBP

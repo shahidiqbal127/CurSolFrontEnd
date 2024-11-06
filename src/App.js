@@ -16,6 +16,7 @@ import ErrorPages from "pages/ErrorPages";
 
 export default function App() {
   const { pathname } = useLocation();
+  
 
   // Setting page scroll to 0 when changing the route
   useEffect(() => {

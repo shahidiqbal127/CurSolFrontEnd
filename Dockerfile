@@ -13,6 +13,10 @@ RUN npm install --legacy-peer-deps
 # Copy the entire project to the container
 COPY . .
 
+
+# Set environment variable directly in Docker
+ENV REACT_APP_API_URL=${REACT_APP_API_URL}
+
 # Build the React app
 RUN npm run build
 

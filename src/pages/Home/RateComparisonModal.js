@@ -30,8 +30,7 @@ const RateComparisonModal = ({ open, handleClose, sourceCurrency, targetCurrency
       setLoading(true);
       setUserError(null);
       try {
-        const response = await get(
-          `api/ExchangeRateConversion?source=${sourceCurrency}&target=${targetCurrency}`
+        const response = await get(`https://cursolsystem-production.up.railway.app/api/ExchangeRateConversion?source=${sourceCurrency}&target=${targetCurrency}`
         );
         if (response.length === 0) {
           setUserError("No data found.");

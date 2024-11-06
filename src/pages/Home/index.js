@@ -24,6 +24,7 @@ import bgImage from "assets/images/Home-bg.jpg";
 import "../../CustomCSS.css";
 import LatestBlog from "pages/LandingPages/Blog/LatestBlog";
 
+
 function Home() {
   return (
     <>

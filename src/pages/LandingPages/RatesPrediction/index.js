@@ -30,7 +30,7 @@ function CurrencyRatePrediction() {
     setLoading(true);
     setUserError(null);
     try {
-      const response = await get("api/CurrencyCodeAndFlags");
+      const response = await get("https://cursolsystem-production.up.railway.app/api/CurrencyCodeAndFlags");
       // Filter currencies to only include PKR, NGN, INR
       const filteredTarget = response.filter((currency) =>
         ["PKR", "NGN", "INR"].includes(currency.currencyCode)
@@ -52,7 +52,7 @@ function CurrencyRatePrediction() {
     setUserError(null);
     try {
       const response = await get(
-        `api/fetching-forecast-data?currencyPair=${selectedCurrencyFrom} to ${selectedCurrencyTo}`
+        `https://cursolsystem-production.up.railway.app/api/fetching-forecast-data?currencyPair=${selectedCurrencyFrom} to ${selectedCurrencyTo}`
       );
       processChartData(response);
     } catch (error) {
@@ -65,8 +65,8 @@ function CurrencyRatePrediction() {
   const processChartData = (data) => {
     const dates = data.map((item) => item.targetDate);
     const predictedValues = data.map((item) => item.predictedValue);
-    const confidenceMin = data.map((item) => item.confidenceIntervalMin);
-    const confidenceMax = data.map((item) => item.confidenceIntervalMax);
+    // const confidenceMin = data.map((item) => item.confidenceIntervalMin);
+    // const confidenceMax = data.map((item) => item.confidenceIntervalMax);
 
     setChartOptions({
       title: { text: `${selectedCurrencyFrom} to ${selectedCurrencyTo} Rate Prediction` },
@@ -74,8 +74,8 @@ function CurrencyRatePrediction() {
       yAxis: { title: { text: "Exchange Rate" } },
       series: [
         { name: "Predicted Value", data: predictedValues },
-        { name: "Confidence Min", data: confidenceMin, dashStyle: "ShortDash" },
-        { name: "Confidence Max", data: confidenceMax, dashStyle: "ShortDash" },
+        // { name: "Confidence Min", data: confidenceMin, dashStyle: "ShortDash" },
+        // { name: "Confidence Max", data: confidenceMax, dashStyle: "ShortDash" },
       ],
     });
   };

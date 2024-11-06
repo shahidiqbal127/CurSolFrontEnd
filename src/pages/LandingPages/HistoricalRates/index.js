@@ -45,7 +45,7 @@ function CurrencyHistoricalRates() {
     setLoading(true);
     setUserError(null);
     try {
-      const response = await get("api/CurrencyCodeAndFlags");
+      const response = await get("https://cursolsystem-production.up.railway.app/api/CurrencyCodeAndFlags");
       const filtered = response.filter((currency) =>
         ["GBP", "EUR"].includes(currency.currencyCode)
       );
@@ -63,7 +63,7 @@ function CurrencyHistoricalRates() {
     setUserError(null);
     try {
       const response = await get(
-        `api/HistoricalRates?datePattern=${selectedDate.format(
+        `https://cursolsystem-production.up.railway.app/api/HistoricalRates?datePattern=${selectedDate.format(
           "YYYY-MM-DD"
         )}&source=${selectedCurrencyFrom}&target=${selectedCurrencyTo}`
       );

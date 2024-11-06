@@ -63,8 +63,8 @@ function ContactUs() {
     }
     try {
       setLoading(true);
-      const API_URL = process.env.REACT_APP_API_URL;
-      const response = await axios.post(`${API_URL}/api/ContactUs`, formData);
+      
+      const response = await axios.post(`https://cursolsystem-production.up.railway.app/api/ContactUs`, formData);
       setLoading(false);
       setSuccessMessage("Thanks for Contacting. We will get back to you soon");
       setSnackbarOpen(true);

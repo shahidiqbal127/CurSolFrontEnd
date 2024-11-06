@@ -31,11 +31,12 @@ const CurrencyConversion = () => {
       setLoading(true); // Start loading
       setUserError(null); // Reset user error
       try {
-        const API_URL = process.env.REACT_APP_API_URL;
-        const response = await get(`${API_URL}/api/CurrencyCodeAndFlags`);
-        // const response = await get("api/CurrencyCodeAndFlags"); // Replace with your endpoint
+        // const API_URL = process.env.REACT_APP_API_URL;
+        // console.log("API URL:", process.env.REACT_APP_API_URL)
+        // const response = await get(`${API_URL}/api/CurrencyCodeAndFlags`);
+        const response = await get("https://cursolsystem-production.up.railway.app/api/CurrencyCodeAndFlags"); // Replace with your endpoint
         setFlagsAndCodes(response); // Handle success
-
+        console.log(response);
         // Filter to only include EUR and GBP
         const filteredCurrencies = response.filter(
           (currency) => currency.currencyCode === "EUR" || currency.currencyCode === "GBP"

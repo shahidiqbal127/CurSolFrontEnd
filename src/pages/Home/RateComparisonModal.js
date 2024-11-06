@@ -63,8 +63,8 @@ const RateComparisonModal = ({ open, handleClose, sourceCurrency, targetCurrency
       if (criterion === "rate") {
         return b.rate - a.rate;
       } else if (criterion === "receivedAmount") {
-        const receivedAmountA = (a.rate - a.deliveryFee) * amount;
-        const receivedAmountB = (b.rate - b.deliveryFee) * amount;
+        const receivedAmountA = (amount - a.deliveryFee) * a.rate;
+        const receivedAmountB = (amount - b.deliveryFee) * b.rate;
         return receivedAmountB - receivedAmountA;
       }
       else if (criterion === "deliveryFee") {
@@ -282,7 +282,7 @@ const RateComparisonModal = ({ open, handleClose, sourceCurrency, targetCurrency
         whiteSpace: "nowrap", // Prevent text wrapping
       }}
     >
-      {Math.abs(((detail.rate - detail.deliveryFee) * amount)).toFixed(2)}{" "}
+      {Math.abs(((amount - detail.deliveryFee) * detail.rate)).toFixed(2)}{" "}
       {targetCurrency}
     </Typography>
   </Box>
